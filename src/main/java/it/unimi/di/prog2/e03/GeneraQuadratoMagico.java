@@ -29,12 +29,38 @@ public class GeneraQuadratoMagico {
 
   /** . */
   private GeneraQuadratoMagico() {}
+    public static void main(String[] args) {
+      final int N = Integer.parseInt(args[0]);
+      int[][] quad_mad = new int[N][N];
 
-  /*- Completa il seguente main
+      int numero = 2;
+      int riga = 0;
+      int colonna = N/2;
+      quad_mad[riga][colonna] = 1;
+      while (numero<=N*N) {
+          
+          int newRiga, newColonna;
+          newRiga = (riga-1+N)%N;
+          newColonna = (colonna+1)%N;
+        
+        if (quad_mad[newRiga][newColonna]==0){
+            quad_mad[newRiga][newColonna] = numero;
+            riga = newRiga;
+            colonna = newColonna;
+        } else {
+            newRiga = (riga+1)%N;
+            quad_mad[newRiga][colonna] = numero;
+            riga = newRiga;
+        }
+        
+        numero++;
+      }
 
-  public static void main(String[] args) {
-    final int N = Integer.parseInt(args[0]);
-  }
-
-  */
+      for (int[] row : quad_mad) {
+        for (int elem : row) {
+          System.out.print(elem+" ");
+        }
+        System.out.println("");
+      }
+    }
 }

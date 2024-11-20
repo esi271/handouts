@@ -21,6 +21,10 @@ along with this file.  If not, see <https://www.gnu.org/licenses/>.
 
 package it.unimi.di.prog2.e03;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 /**
  * Vedi <a
  * href="https://github.com/mapio/labprog/blob/master/esercizi/bounding_box/Testo.md">testo</a>,
@@ -30,15 +34,38 @@ public class BoundingBox {
   /** . */
   private BoundingBox() {}
 
-  /*- Completa il seguente main
+
 
   public static void main(String[] args) {
+    List<String> linee = new ArrayList<>();
     try (Scanner s = new Scanner(System.in)) {
       while (s.hasNext()) {
         final String linea = s.nextLine();
+        linee.add(linea);
       }
     }
+    int sinistra, destra, sopra, sotto;
+    sinistra = linee.get(0).length();
+    destra = 0;
+    sopra = linee.size();
+    sotto = 0;
+
+    for (int i = 0; i < linee.size(); i++) {
+        for (int j = 0; j < linee.get(i).length(); j++){
+          if (linee.get(i).charAt(j) == '*'){
+            sinistra = Math.min(sinistra, j);
+            destra = Math.max(destra, j);
+            sopra = Math.min(sopra, i);
+            sotto = Math.max(sotto, i);
+          }
+        }
+    }
+
+    int altezza = sotto - sopra + 1;
+    int larghezza = destra - sinistra + 1;
+    System.out.println(altezza+" "+larghezza);
+
   }
 
-  */
+
 }

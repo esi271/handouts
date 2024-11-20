@@ -39,4 +39,23 @@ public class NaveSpaziale {
   //
   // non c'è bisogno di importare alcun package per poter usare Integer.
 
+  public static void main(String[] args) {
+      int from = Integer.parseInt(args[0]);
+      int to = Integer.parseInt(args[1]);
+
+      StringBuilder comandi = new StringBuilder();
+      while (to>from){
+        if (to%4==0&&to/4>=from) {
+          comandi.append('S');
+          to/=4;
+        } else {
+          comandi.append('P');
+          to--;
+        }
+      }
+
+      System.out.println(comandi.reverse().toString());
+
+  }
+
 }

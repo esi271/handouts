@@ -21,6 +21,10 @@ along with this file.  If not, see <https://www.gnu.org/licenses/>.
 
 package it.unimi.di.prog2.e03;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
 /**
  * Vedi <a
  * href="https://github.com/mapio/labprog/blob/master/esercizi/lettera_piu_frequente/Testo.md">testo</a>,
@@ -30,15 +34,27 @@ public class LetteraPiùFrequente {
   /** . */
   private LetteraPiùFrequente() {}
 
-  /*- Completa il seguente main
-
   public static void main(String[] args) {
+    HashMap<Character, Integer> occorrenze = new HashMap<Character, Integer>();
     try (Scanner s = new Scanner(System.in)) {
       while (s.hasNext()) {
         final String parola = s.nextLine();
+        for (Character c : parola.toCharArray()) {
+            if (c!=' '){
+              occorrenze.put(c, occorrenze.getOrDefault(c, 0)+1);
+            }
+        }
       }
     }
+
+    int lettera_piu_frequente = 0;
+
+    for (Map.Entry<Character, Integer> coppia : occorrenze.entrySet()){
+      lettera_piu_frequente = Math.max(lettera_piu_frequente, coppia.getValue());
+    }
+
+    System.out.println(lettera_piu_frequente);
+
   }
 
-  */
 }

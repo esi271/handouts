@@ -32,5 +32,17 @@ public class IsPrimeClient {
 
   // Il main riceve un intero come parametro sulla linea di comando ed emette
   // "true" nel flusso d'uscita se e solo se esso è primo.
+  /** 
+   * 
+   * Client per il metodo isPrime() della classe Num
+   * 
+   * @param args numero da controllare
+   */ 
+  public static void main(String[] args) {
+      int n = Integer.parseInt(args[0]);
+      if (Num.isPrime(n)){
+        System.out.println("true");
+      }
+  }
 
 }

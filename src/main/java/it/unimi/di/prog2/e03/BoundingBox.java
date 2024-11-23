@@ -35,7 +35,12 @@ public class BoundingBox {
   private BoundingBox() {}
 
 
-
+  /**
+   * Trova la larghezza e altezza della bounding box, ovvero le misure che bastano per contenere la figura disegnata
+   * con "*"
+   *  
+   * @param args non usato
+   */
   public static void main(String[] args) {
     List<String> linee = new ArrayList<>();
     try (Scanner s = new Scanner(System.in)) {

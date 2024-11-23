@@ -33,7 +33,13 @@ public class LetteraPiùFrequente {
 
   /** . */
   private LetteraPiùFrequente() {}
-
+  /** 
+   * 
+   * Trova la lettera più frequente nella frase scritta.
+   * 
+   * @param args non usato
+   *
+   */
   public static void main(String[] args) {
     HashMap<Character, Integer> occorrenze = new HashMap<Character, Integer>();
     try (Scanner s = new Scanner(System.in)) {

@@ -38,7 +38,16 @@ public class NaveSpaziale {
   // int to = Integer.parseInt(args[1]);
   //
   // non c'è bisogno di importare alcun package per poter usare Integer.
-
+  /**
+   *  
+   * Date due coordinate x e y in uno spazio monodimensionale il metodo stampa
+   * la serie di comandi più veloce per arrivare da x a y.
+   * I comandi sono:
+   * P: 1 passo
+   * S: viene quadruplicata la coordinata corrente
+   * 
+   * @param args le coordinate from e to
+   */
   public static void main(String[] args) {
       int from = Integer.parseInt(args[0]);
       int to = Integer.parseInt(args[1]);

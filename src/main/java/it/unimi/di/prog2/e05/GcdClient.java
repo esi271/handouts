@@ -21,6 +21,8 @@ along with this file.  If not, see <https://www.gnu.org/licenses/>.
 
 package it.unimi.di.prog2.e05;
 
+import java.util.Scanner;
+
 /** Esercizio 3.1 di PDJ. */
 public class GcdClient {
 
@@ -32,5 +34,26 @@ public class GcdClient {
 
   // Il main legge dal flusso di ingresso coppie di numeri ed emette nel flusso
   // d'uscita il loro gcd.
+
+  /** 
+   * Client per il calcolo del MCD di due numeri
+   * 
+   * @param args coppie di numeri da controllare
+   * 
+   *  
+   */
+  public static void main(String[] args) {
+        try (Scanner s = new Scanner(System.in)){
+          while (s.hasNext()){
+            String line = s.nextLine();
+            String[] numeri = line.split(" ");
+            int x = Integer.parseInt(numeri[0]);
+            int y = Integer.parseInt(numeri[1]);
+
+            System.out.println(Num.gcd(x, y));
+
+          }
+        }
+  }
 
 }

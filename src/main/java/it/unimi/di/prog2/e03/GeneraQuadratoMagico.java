@@ -29,6 +29,12 @@ public class GeneraQuadratoMagico {
 
   /** . */
   private GeneraQuadratoMagico() {}
+  /** 
+   * Genera un quadrato magico.
+   * Un quadrato magico è una forma speciale in cui la somma per ogni riga e colonna è uguale
+   * 
+   * @param args N la misura del lato del quadrato
+   */
     public static void main(String[] args) {
       final int N = Integer.parseInt(args[0]);
       int[][] quad_mad = new int[N][N];

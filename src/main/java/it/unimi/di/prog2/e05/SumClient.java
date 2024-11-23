@@ -32,5 +32,22 @@ public class SumClient {
 
   // Il main riceve un elenco di interi come parametri sulla linea di comando e
   // ne emette la somma nel flusso d'ingresso.
+  /**
+   * 
+   * Client per il metodo Sum di Num
+   *  
+   * @param args i numeri da sommare
+   */
+  public static void main(String[] args) {
+
+      int[] numeri = new int[args.length];
+
+      for (int i = 0;i<args.length;i++){
+        numeri[i] = Integer.parseInt(args[i]);
+      }
+
+      System.out.println(Num.Sum(numeri));
+
+  }
 
 }

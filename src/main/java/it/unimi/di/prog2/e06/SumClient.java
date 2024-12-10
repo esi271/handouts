@@ -21,6 +21,8 @@ along with this file.  If not, see <https://www.gnu.org/licenses/>.
 
 package it.unimi.di.prog2.e06;
 
+import java.util.Scanner;
+
 /** Esercizio 4.3 di PDJ. */
 public class SumClient {
 
@@ -29,5 +31,25 @@ public class SumClient {
 
   // Il main di questa classe legge dal flusso di ingresso una sequenza di al
   // più 100 interi e ne emette la somma nel flusso d'uscita.
+
+  /** 
+   *
+   * Somma i numeri letti dal flusso di ingresso.
+   *  
+   * @param args non usato
+   * 
+   */
+
+   public static void main(String[] args) {
+      int somma = 0;
+      try (Scanner s = new Scanner(System.in)) {
+        while (s.hasNext()) {
+          somma += Integer.parseInt(s.next());
+        }
+      }
+
+      System.out.println(somma);
+
+   }
 
 }

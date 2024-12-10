@@ -21,6 +21,10 @@ along with this file.  If not, see <https://www.gnu.org/licenses/>.
 
 package it.unimi.di.prog2.e10;
 
+import java.util.Objects;
+
+import javax.print.attribute.standard.MediaSize;
+
 /**
  * A rational number is an immutable number that can be expressed as the quotient or fraction \( p/q
  * \) of two {@code int}s, a numerator \( p \) and a non-zero denominator \( q \).
@@ -32,13 +36,38 @@ public class RationalNumber {
   // equals, hashCode, and toString methods); add methods that are adequate to
   // the specification.
 
+  /** numerator p */
+  public final int numerator;
+  /** denominator q can't be 0 */
+  public final int denominator;
+
   /**
    * Creates a new rational number.
    *
    * @param numerator the numerator.
    * @param denominator the denominator.
+   * @throws IllegalArgumentException if {@code denominator} is 0.
    */
-  public RationalNumber(int numerator, int denominator) {}
+  public RationalNumber(int numerator, int denominator) {
+    if (denominator == 0) throw new IllegalArgumentException("denominator cannot be 0");
+    this.numerator = numerator;
+    this.denominator = denominator;
+  }
+
+  /** 
+   * Returns the greatest common divisor between two numbers
+   * @param a first number
+   * @param b second number
+   * @return the gcd of the two numbers
+   */
+  private int gcd(int a, int b) {
+    while (b!=0) {
+      int temp = b;
+      b = a%b;
+      a = temp;
+    }
+    return a;
+  }
 
   /**
    * Returns the sum of this rational number and another one.
@@ -47,7 +76,9 @@ public class RationalNumber {
    * @return the sum of this rational number and {@code other}.
    */
   public RationalNumber add(RationalNumber other) {
-    return null;
+    return new RationalNumber(
+      numerator + other.numerator, denominator + other.denominator
+    );
   }
 
   /**
@@ -57,6 +88,25 @@ public class RationalNumber {
    * @return the product of this rational number and {@code other}.
    */
   public RationalNumber mul(RationalNumber other) {
-    return null;
+    return new RationalNumber(
+      numerator * other.numerator, denominator * other.denominator
+    );
   }
+
+  @Override
+  public String toString() {
+    return numerator+"/"+denominator;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (!(obj instanceof RationalNumber other)) return false;
+    return this.numerator == other.numerator && this.denominator == other.denominator;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(numerator, denominator);
+  }
+
 }

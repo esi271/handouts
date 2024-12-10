@@ -21,6 +21,10 @@ along with this file.  If not, see <https://www.gnu.org/licenses/>.
 
 package it.unimi.di.prog2.e06;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 /** Esercizio 4.2 di PDJ. */
 public class SearchClient {
 
@@ -31,5 +35,48 @@ public class SearchClient {
   // interi (separati da spazi) e, assumendo che sia ordinata in ordine
   // crescente, emette nel flusso d'uscita la posizione dell'intero specificato
   // sulla linea di comando (se presente nell'input), o -1 viceversa.
+  /** 
+   * 
+   * Cerca il numero x nell'array a. Restituisce -1 se x non è presente.
+   * L'array a deve essere ordinato in ordine crescente.
+   * 
+   * @param args il numero da cercare
+   * 
+   */
 
+   public static void main(String[] args){
+    
+    List<Integer> numeri = new ArrayList<>();
+    int x = Integer.parseInt(args[0]);
+
+    try (Scanner s = new Scanner(System.in)) {
+      while (s.hasNext()) {
+        numeri.add(s.nextInt());
+      }
+    }
+    
+    int[] a = new int[numeri.size()];
+    
+    for (int i = 0; i < numeri.size(); i++) {
+        a[i] = numeri.get(i);
+    }
+
+    boolean trovato = false;
+    int index = -1;
+
+    for (int i = 0; i<a.length; i++) {
+        if (a[i] == x) {
+            index = i;
+            trovato = true; 
+        } 
+    }
+
+    if (trovato) {
+      System.out.println(index);
+    } else {
+      System.out.println("-1");
+    }
+    
+   }
+  
 }

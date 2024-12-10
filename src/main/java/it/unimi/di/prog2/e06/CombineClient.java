@@ -54,4 +54,64 @@ public class CombineClient {
   // uno per linea). Può avvalersi della funzione precedente per decodificare
   // ciascuna delle due linee in ingresso.
 
+  /** 
+   * 
+   * Moltplica ogni elemento di a alla somma degli elementi di b.
+   * 
+   * Il metodo modifica l'array a. Se a è vuoto, non cambia. Se b è vuoto, gli elementi di a saranno tutti azzerati.
+   * 
+   * Manda un {@link NullPointerException} se a o b sono {@code null}.
+   * 
+   * @param a l'array in cui gli elementi verranno moltiplicati
+   * @param b l'array a cui gli elementi verranno sommati per la moltiplicazione.
+   * @throws NullPointerException quando a o b sono null.
+   * 
+   */
+  public static void combine(int a[], int b[]){
+    
+    if (a == null || b ==null) {
+      throw new NullPointerException("a o b sono nulli");
+    }
+
+    int somma = 0;
+    for (int num : b) {
+      somma += num;
+    }
+
+    for (int i = 0; i<a.length; i++) {
+      a[i] *= somma;
+    }
+
+  }
+
+  /** 
+   *
+   * Metodo main del programma. 
+   * 
+   * @param args non usato
+   */  
+  public static void main(String[] args) {
+    List<String> linee = new ArrayList<>();
+    try (Scanner s = new Scanner(System.in)){
+      while (s.hasNext()) {
+        linee.add(s.nextLine());
+      }
+    }
+
+    int[] a = parseInts(linee.get(0));
+    int[] b = parseInts(linee.get(1));   
+   
+    try {
+
+      combine(a, b);
+      for (int n : a) {
+          System.out.println(n);
+      }
+
+    } catch (NullPointerException e){
+      System.out.println("Error: "+e.getMessage());
+    }
+
+  }
+
 }
